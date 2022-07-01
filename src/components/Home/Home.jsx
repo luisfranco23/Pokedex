@@ -24,7 +24,7 @@ const Home = () => {
           <h2 className='home-title'>¡Hola Entrenador!</h2>
           <p className='home-p'>Para poder comenzar, dame tu nombre</p>
           <form className='home-form' onSubmit={handleSubmit(submit)}>
-              <input className='home-input' type="text" placeholder='Tu nombre' {...register('nameUser')} />
+              <input className='home-input' type="text" required placeholder='Tu nombre' {...register('nameUser')} />
               <button className='btn'>Comenzar</button>
           </form>
         </aside>

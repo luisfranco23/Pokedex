@@ -14,14 +14,33 @@ const Pokemon = ({url}) => {
 
     const navigate = useNavigate()
     const clinkPokemon = () => {
-        navigate('/pokemon/id')
+        navigate(`/pokemon/${pokemon?.id}`)
     }
-
+    console.log(pokemon)
   return (
-    <section onClick={clinkPokemon} className='pokemon'>
+    <section onClick={clinkPokemon} className={`${pokemon?.types[0].type.name} pokemon`}>
         <img className='pokemon-img' src={pokemon?.sprites.other['official-artwork'].front_default} alt="pokemon" />
-        <h2>{pokemon?.name.toUpperCase()} </h2>
-        <p>{`${pokemon?.types[0].type.name} /`} </p>
+        <h2 className='pokemon-name'>{pokemon?.name.toUpperCase()} </h2>
+        <p className='pokemon-type'>{`${pokemon?.types[0].type.name}`} </p>
+        <p className='pokemon-type'>Type</p>
+        <div className='pokemon-mov'>
+        <aside>
+          <p className='pokemon-state'> {pokemon?.stats[0].stat.name}</p>
+          <h2 className='pokemon-base-state'> {pokemon?.stats[0].base_stat}</h2>
+        </aside>
+        <aside>
+          <p className='pokemon-state'> {pokemon?.stats[1].stat.name}</p>
+          <h2 className='pokemon-base-state'> {pokemon?.stats[1].base_stat}</h2>
+        </aside>
+        <aside>
+          <p className='pokemon-state'> {pokemon?.stats[2].stat.name}</p>
+          <h2 className='pokemon-base-state'> {pokemon?.stats[2].base_stat}</h2>
+        </aside>
+        <aside>
+          <p className='pokemon-state'> {pokemon?.stats[5].stat.name}</p>
+          <h2 className='pokemon-base-state'> {pokemon?.stats[5].base_stat}</h2>
+        </aside>
+        </div>
     </section>
   )
 }

@@ -2,12 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const typeQuery = createSlice({
     name: 'typeSelected',
-    initialState: null,
+    initialState: 'ALLPOKEMON',
     reducers: {
-        typeSelected: (state, action) => action.payload 
+        setTypeSelected: (state, action) => action.payload 
     }
 })
 
-export const { typeSelected } = typeQuery.actions;
+export const { setTypeSelected } = typeQuery.actions;
 
 export default typeQuery.reducer;

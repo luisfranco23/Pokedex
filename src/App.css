@@ -97,8 +97,6 @@
   text-align: center;
   font-size: medium;
 }
-
-
 .pokedex-name{
   color: red;
 }
@@ -122,20 +120,48 @@
 }
 
 .pokemon {
-  border: 1px solid black;
   width: min-content;
   padding: 20px;
   border-radius: 5px;
+  text-align: center;
+  box-shadow: 3px 2px 4px 1px rgb(0 0 0 / 30%) ;
+}
+.pokemon:hover {
+  transform: translateY(5px);
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+.pokemon-mov {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(2,1fr);
+  gap: 10px;
+  border-top: 1px solid rgb(160, 160, 160);
+}
+
+.pokemon-base-state {
+  font-size: 22px;
+  color: lightslategray;
+}
+.pokemon-name {
+  color:lightslategray ;
+}
+.pokemon-state {
+  text-transform: uppercase;
+  padding-top: 10px;
+  font-size: 13px;
 }
 
 .pokemon-img {
   width: 200px;
   height: 200px;
 }
-
+.pokemon-type {
+  text-transform: capitalize;
+  color: rgb(109, 109, 109);
+  padding-bottom: 5px;
+}
 .poke-id {
   background-color: lightgray;
-  height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -146,19 +172,20 @@
 .poke-head,.movements {
   background-color: white;
   padding: 3px;
-  width: 90vw;
+  width: 80vw;
   border-radius: 5px;
   box-shadow: 3px 2px 4px 1px rgb(0 0 0 / 30%);
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
-.gradient {
-  background: rgb(126,116,34);
-  background: linear-gradient(111deg, rgba(126,116,34,1) 0%, rgba(224,228,40,1) 55%, rgba(234,244,69,1) 93%);
-  height: 100px;
-  width: 100%;
+.pokemon-img-id {
+  display: block;
+  margin: auto auto;
+  max-width: 350px;
 }
 .poke-id-text {
-  /* border: 2px solid lightslategrey; */
+  border: 2px solid lightslategrey;
   width: 30px;
   font-size: 20px;
   aspect-ratio: 1;
@@ -177,6 +204,7 @@
 .poke-info-id-2:nth-child(1){
   grid-column: 1 / 2;
 }
+
 
 .stats {
   width: 500px;
@@ -207,6 +235,90 @@
   border: none;
   padding: 5px 20px;
   border-radius: 20px;
+  text-transform: capitalize;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 3px 2px 4px 1px rgb(0 0 0 / 20%) ;
+}
+.btn-info:hover {
+  transform: scale3d(1.1,1.1,1.1);
+  box-shadow: 3px 2px 4px 1px rgb(0 0 0 / 40%) ;
+}
+.fire {
+  border: 7px solid rgba(254,85,0,1);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(254,85,0,1) 0%, rgba(250,234,187,1) 55%, rgba(255,255,255,1) 93%);
+  }
+.fighting{
+  border: 7px solid rgb(150,37,14) ;
+  background: linear-gradient(180deg, rgba(150,37,14,1) 0%, rgba(250,234,187,1) 55%, rgba(255,255,255,1) 93%);
+}
+.water {
+  border: 7px solid rgba(42,62,186,1);
+  background: linear-gradient(180deg, rgba(42,62,186,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.grass {
+  border: 7px solid rgba(42,186,136,1) ;
+  background: linear-gradient(180deg, rgba(42,186,136,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.bug {
+  border: 7px solid rgba(30,208,101,1) ;
+  background: linear-gradient(180deg, rgba(30,208,101,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.normal {
+  border: 7px solid rgba(68,10,0,1) ;
+  background: linear-gradient(180deg, rgba(68,10,0,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.poison {
+  border: 7px solid rgba(9,14,96,1) ;
+  background: linear-gradient(180deg, rgba(9,14,96,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.electric {
+  border: 7px solid rgba(255,248,0,1);
+  background: linear-gradient(180deg, rgba(255,248,0,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
 }
 
+.ground {
+  border: 7px solid rgba(8,126,4,1);
+  background: linear-gradient(180deg, rgba(8,126,4,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.fairy {
+  border: 7px solid rgba(184,8,141,1);
+  background: linear-gradient(180deg, rgba(184,8,141,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.psychic {
+  border: 7px solid rgba(139,0,31,1) ;
+  background: linear-gradient(180deg, rgba(139,0,31,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.rock {
+  border: 7px solid rgba(80,80,80,1);
+  background: linear-gradient(180deg, rgba(80,80,80,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.ghost {
+  border: 7px solid rgba(121,2,224,1);
+  background: linear-gradient(180deg, rgba(121,2,224,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+}
+.steel {
+  border: 7px solid rgba(39,92,89,1);
+  background: linear-gradient(180deg, rgba(39,92,89,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+  color:rgba(39,92,89,1) ;
+}
+.ice {
+  border: 7px solid rgba(0,255,239,1);
+  background: linear-gradient(180deg, rgba(0,255,239,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+  color: rgba(0,255,239,1);
+}
+.dragon {
+  border: 7px solid rgba(222,9,9,1) ;
+  background: linear-gradient(180deg, rgba(222,9,9,1) 0%, rgba(246,242,219,1) 55%, rgba(255,255,255,1) 93%);
+  color: rgba(222,9,9,1);
+}
+.dark {
+  border: 7px solid rgba(0,0,0,1) ;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(60,1,1,1) 55%, rgba(255,255,255,1) 93%);
+  color:rgba(0,0,0,1) ;
+}
 
+.border {
+  border: none;
+}

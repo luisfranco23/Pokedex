@@ -1,5 +1,6 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from 'axios'
 
 const PokemonId = () => {
   const navigate = useNavigate();
@@ -8,14 +9,25 @@ const PokemonId = () => {
     navigate("/pokedex");
   };
 
+  const {id} = useParams()
+  const [pokemonId, setPokemonId] = useState()
+
+  useEffect(() => {
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      .then(res => setPokemonId(res.data))
+      .catch(err => console.log(err))
+  },[])
+
+  console.log(pokemonId)
+
   return (
     <section className="poke-id">
       <aside className="poke-head">
-        <div className="gradient">
-          <img src="" alt="" />
+        <div className={`${pokemonId?.types[0].type.name} border`}>
+          <img className="pokemon-img-id" src={pokemonId?.sprites.other['official-artwork'].front_default} alt="pokemon" />
+          <h1 className="poke-id-text">#{pokemonId?.id} </h1>
+          <h2 className="poke-id-text">{pokemonId?.name} </h2>
         </div>
-        <h1 className="poke-id-text">#id</h1>
-        <h2 className="poke-id-text"> Nombre</h2>
         <div className="poke-info-id">
           <p>peso </p>
           <p>altura</p>
@@ -38,7 +50,7 @@ const PokemonId = () => {
           </div>
             <div className="color-info"></div>
           <div className="head">
-          <p>Ataque:</p>
+          <p>{pokemonId?.stats[1].stat.name}</p>
           <p>45/150</p>
           </div>
             <div className="color-info"></div>
@@ -57,18 +69,11 @@ const PokemonId = () => {
       <aside className="movements">
         <h2>Movements</h2>
         <div className="info">
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Info</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
-          <button className="btn-info">Información</button>
+            {
+              pokemonId?.moves.map(e => (
+                <button className="btn-info">{e.move.name}</button>
+              ))
+            }
         </div>
 
       </aside>

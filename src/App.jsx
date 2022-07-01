@@ -20,10 +20,10 @@ function App() {
         </aside>
     
         <Routes >
-          {/*<Route path='/' element={ <Home /> } />*/}
-          <Route path='/' element={<ProtectedRoutes />}>
+          <Route path='/' element={ <Home /> } />
+          <Route element={<ProtectedRoutes />}>
             <Route path='pokedex' element={<Pokedex />} />
-            <Route path='pokedex/:id' element={<PokemonId />} />
+            <Route path='pokemon/:id' element={<PokemonId />} />
           </Route>
         </Routes>
     
