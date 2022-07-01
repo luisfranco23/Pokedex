@@ -67,7 +67,7 @@ const PokemonId = () => {
         </div>
       </aside>
       <aside className="movements">
-        <h2>Movements</h2>
+        <h2 className="movements-title">Movements</h2>
         <div className="info">
             {
               pokemonId?.moves.map(e => (
