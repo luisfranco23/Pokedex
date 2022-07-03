@@ -58,10 +58,10 @@ const Pokedex = () => {
 
   return (
     <div>
-        <h2 className='pokedex-title'><span className='pokedex-name'>Bienvenido {nameUser}</span>, aquí podrás encontrar tu pokemón favorito</h2>
+        <h2 className='pokedex-title'><span className='pokedex-name'>Welcome {nameUser}</span>, here you can find your favorite pokemon</h2>
         <aside className='pokedex-nav'>
             <form className='home-form' onSubmit={e => e.preventDefault()}>
-                <input className='home-input'  type="text" placeholder='Busca un pokemón' onChange={valueSearch} />
+                <input className='home-input'  type="text" placeholder='Seacrh for a pokemon' onChange={valueSearch} />
                 <button className='btn'><i className='bx bx-filter-alt'></i></button>
             </form>
             <select className='pokedex-select' onChange={selectOption} name="class">

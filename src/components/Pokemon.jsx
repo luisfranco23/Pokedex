@@ -16,12 +16,11 @@ const Pokemon = ({url}) => {
     const clinkPokemon = () => {
         navigate(`/pokemon/${pokemon?.id}`)
     }
-    console.log(pokemon)
   return (
     <section onClick={clinkPokemon} className={`${pokemon?.types[0].type.name} pokemon`}>
         <img className='pokemon-img' src={pokemon?.sprites.other['official-artwork'].front_default} alt="pokemon" />
-        <h2 className='pokemon-name'>{pokemon?.name.toUpperCase()} </h2>
-        <p className='pokemon-type'>{`${pokemon?.types[0].type.name}`} </p>
+        <h2 className='pokemon-name'>{pokemon?.name} </h2>
+        <p className='pokemon-type'>{`${pokemon?.types[0].type.name} / ${pokemon?.types[1]?.type?.name === undefined ? '-○-' : pokemon?.types[1]?.type?.name}`} </p>
         <p className='pokemon-type'>Type</p>
         <div className='pokemon-mov'>
         <aside>

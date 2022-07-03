@@ -21,11 +21,11 @@ const Home = () => {
     <section className='home'>
         <aside className='home-info'>
           <img className='home-img' src={pokedeximg} alt="pokedex" />
-          <h2 className='home-title'>¡Hola Entrenador!</h2>
-          <p className='home-p'>Para poder comenzar, dame tu nombre</p>
+          <h2 className='home-title'>Hi Coach!</h2>
+          <p className='home-p'>In order to start, give me your name</p>
           <form className='home-form' onSubmit={handleSubmit(submit)}>
-              <input className='home-input' type="text" required placeholder='Tu nombre' {...register('nameUser')} />
-              <button className='btn'>Comenzar</button>
+              <input className='home-input' type="text" required placeholder='Your name' {...register('nameUser')} />
+              <button className='btn'>¡let's Go!</button>
           </form>
         </aside>
         {/* <footer className='footer'>
