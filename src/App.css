@@ -54,6 +54,11 @@ body::-webkit-scrollbar-thumb{
   font-size: 18px;
   height: 40px;
 }
+@media screen and (max-width: 370px) {
+  .home-input{
+    width: 200px;
+  }
+}
 .home-input::placeholder{
   color: lightgray;
   font-size: 16px;
@@ -387,7 +392,6 @@ body::-webkit-scrollbar-thumb{
   border-radius: 20px;
   text-transform: capitalize;
   font-size: 14px;
-  cursor: pointer;
   box-shadow: 3px 2px 4px 1px rgb(0 0 0 / 20%) ;
 }
 .btn-info:hover {
