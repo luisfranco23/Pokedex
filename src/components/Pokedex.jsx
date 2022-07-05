@@ -118,8 +118,6 @@ const Pokedex = () => {
                 :
                 arrayPokemons?.map(pokemon => (
                     <Pokemon url={pokemon.url} key={pokemon?.url} />
-                )) && pokemons?.map(pokemon => (
-                    <Pokemon url={pokemon.url} key={pokemon?.url} />
                 ))
                 
             }
