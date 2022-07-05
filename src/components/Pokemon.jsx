@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const Pokemon = ({url}) => {
-
+  
     const [pokemon, setPokemon] = useState()
 
     useEffect(() => {

@@ -54,7 +54,7 @@ body::-webkit-scrollbar-thumb{
   font-size: 18px;
   height: 40px;
 }
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 369px) {
   .home-input{
     width: 200px;
   }
@@ -367,6 +367,9 @@ body::-webkit-scrollbar-thumb{
 .end--15::after{
   --progress:15%
 }
+.end--50::after{
+  --progress: 50%
+}
 
 @keyframes progress-p {
   to {
@@ -475,4 +478,46 @@ body::-webkit-scrollbar-thumb{
 
 .border {
   border: none;
+}
+
+.pagination-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+.pagination-number-container {
+  display: flex;
+  gap: 10px;
+}
+.pag-prev-next {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  width: 40px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(218, 1, 1);
+  border-radius: 8px;
+
+}
+.page-number {
+  font-size: 30px;
+  color: black;
+  cursor: pointer;
+  width: 40px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.page-active {
+  background-color: rgb(218, 1, 1);
+  color: white;
+
 }

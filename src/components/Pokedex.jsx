@@ -5,12 +5,40 @@ import Pokemon from './Pokemon'
 import { useDispatch } from 'react-redux'
 import { setTypeSelected } from '../store/slices/typeQuery.slice'
 import { useNavigate } from "react-router-dom";
+import Pagination from './Pagination'
+import { useForm } from 'react-hook-form'
 
 
 
 const Pokedex = () => {
 
     const [pokemons, setPokemons] = useState()
+    // pagination
+
+    const [currentPage, setCurrentPage] = useState(1)
+    let arrayPokemons = []
+    const pokemonPerPage = 16
+    if(pokemons?.length < pokemonPerPage) {
+        arrayPokemons = [...pokemons]
+    }else{
+        const lastPokemon = currentPage * pokemonPerPage
+        arrayPokemons = pokemons?.slice(lastPokemon - pokemonPerPage, lastPokemon)
+    }
+
+    let arrayPages = []
+    let quantityPages = Math.ceil(pokemons?.length / pokemonPerPage)
+    const pagesPerBlock = 5
+    let currentBlock = Math.ceil(currentPage / pagesPerBlock)
+    if (currentBlock * pagesPerBlock > quantityPages) {
+        for(let i = currentBlock * pagesPerBlock - pagesPerBlock + 1; i <= quantityPages ;i++) {
+            arrayPages.push(i)
+        }
+    }else {
+        for (let i = currentBlock * pagesPerBlock - pagesPerBlock + 1 ; i <= currentBlock * pagesPerBlock; i++) {
+            arrayPages.push(i)
+        }
+    }
+
     const [types, settypes] = useState()
 
     const typeSelected = useSelector(state => state.typeSelected)
@@ -73,6 +101,14 @@ const Pokedex = () => {
                 }
             </select>
         </aside>
+        {
+            <Pagination
+            arrayPages={arrayPages} 
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+             quantityPages={quantityPages}
+            />
+        }
        <section className={`pokemons-card`}>
             {
                 searchElement ?
@@ -80,7 +116,9 @@ const Pokedex = () => {
                     <Pokemon url={pokemon.url} key={pokemon?.url} />
                 ))
                 :
-                pokemons?.map(pokemon => (
+                arrayPokemons?.map(pokemon => (
+                    <Pokemon url={pokemon.url} key={pokemon?.url} />
+                )) && pokemons?.map(pokemon => (
                     <Pokemon url={pokemon.url} key={pokemon?.url} />
                 ))
                 
